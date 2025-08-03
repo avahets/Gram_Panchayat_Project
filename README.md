@@ -1,18 +1,18 @@
 Deployment Guide - Digital E-Gram Panchayat
  This guide provides step-by-step instructions for deploying the Digital E-Gram Panchayat
  application on various platforms.
- 📋
+ 
  Prerequisites
  Before deploying, ensure you have:
- ✅
+ 
  Firebase account with active project
- ✅
+ 
  Node.js (v14 or higher) installed
- ✅
+ 
  Git installed
- ✅
+ 
  Domain name (optional, for custom domain)
- ✅
+ 
  SSL certificate (handled automatically by most platforms)
  🔧
  Pre-Deployment Setup
