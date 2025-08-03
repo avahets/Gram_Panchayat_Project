@@ -1,0 +1,157 @@
+{
+  "name": "digital-e-gram-panchayat",
+  "version": "1.0.0",
+  "description": "A comprehensive web application for digitizing village governance and citizen services in Gram Panchayats",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -s",
+    "dev": "npx serve . -s -l 3000",
+    "test": "node tests/unit-tests.js",
+    "lint": "eslint js/**/*.js",
+    "format": "prettier --write **/*.{js,css,html,md}",
+    "build": "echo 'Static site - no build process needed'",
+    "deploy:firebase": "firebase deploy --only hosting",
+    "deploy:netlify": "netlify deploy --prod",
+    "security-audit": "npm audit",
+    "lighthouse": "lighthouse http://localhost:3000 --output json --output-path ./lighthouse-report.json",
+    "validate-html": "html-validate index.html",
+    "optimize-images": "imagemin images/**/* --out-dir=images/optimized",
+    "backup-db": "node scripts/backup-firestore.js",
+    "setup": "npm install && npm run firebase:setup",
+    "firebase:setup": "firebase init"
+  },
+  "keywords": [
+    "e-governance",
+    "digital-india",
+    "gram-panchayat",
+    "citizen-services",
+    "government",
+    "firebase",
+    "web-application",
+    "responsive-design"
+  ],
+  "author": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "url": "https://github.com/yourusername"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/digital-e-gram-panchayat.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/digital-e-gram-panchayat/issues"
+  },
+  "homepage": "https://yourusername.github.io/digital-e-gram-panchayat",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.8.0",
+    "firebase-tools": "^12.0.0",
+    "netlify-cli": "^15.0.0",
+    "lighthouse": "^10.0.0",
+    "html-validate": "^7.0.0",
+    "imagemin": "^8.0.0",
+    "imagemin-webp": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "serve": "^14.0.0"
+  },
+  "dependencies": {
+    "firebase": "^9.23.0"
+  },
+  "config": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,html,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "collectCoverageFrom": [
+      "js/**/*.js",
+      "!js/config.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
+  },
+  "release": {
+    "branches": ["main"],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ]
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/yourusername"
+  },
+  "private": false,
+  "type": "module",
+  "files": [
+    "index.html",
+    "css/",
+    "js/",
+    "firebase/",
+    "images/",
+    "README.md",
+    "LICENSE"
+  ],
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "preferGlobal": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.32.0"
+  }
+}
